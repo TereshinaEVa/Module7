@@ -20,17 +20,13 @@ class Shop:
 
     def add(self, *products):
         for t in products:
-            # proverka = open(self.__file_name)
-            # if t in proverka:
-            #     print(f'Продукт {t} уже есть в магазине')
-            #     proverka.close()
-            # else:
-            #     #proverka.close()
-            file = open(self.__file_name, 'a')
-            file.write(f'{t}\n')
-            file.close()
-
-
+            proverka = Shop.get_products(self)
+            if t.name in proverka:
+                print(f'Продукт {t.name} уже есть в магазине')
+            else:
+                file = open(self.__file_name, 'a')
+                file.write(f'{t}\n')
+                file.close()
 
 
 
@@ -42,3 +38,10 @@ print(p2)
 
 s1.add(p1, p2, p3)
 print(s1.get_products())
+
+# proverka = open(self.__file_name)
+# if t in proverka:
+#     print(f'Продукт {t} уже есть в магазине')
+#     proverka.close()
+# else:
+# # proverka.close()
